@@ -25,8 +25,10 @@ def signup():
     if request.method == "GET":
         return render_template("signup.html")
     else:
-        
-
+        rf = request.form
+        db.execute("INSERT INTO users(username, email, Gcode, pass) VALUES(?, ?, ?, ?)",
+                    rf.get("name"), rf.get("email"), rf.get("Gcode"), hash(rf.get("pass")))
+        return render_template("index.html")
 
 
 if __name__ == "__main__":
