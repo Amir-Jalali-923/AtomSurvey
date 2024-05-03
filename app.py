@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request, session
 from flask_session import Session
 from hashlib import sha256
-from helpers import hash, check_email
+from helpers import hash, check_email, check_Gcode
 from cs50 import SQL;
 
 app = Flask(__name__)
@@ -32,7 +32,9 @@ def signup():
             return render_template("error.html", errtext="password confirmation doesn't match with password", errcode="400"), 400
         elif not check_email(rf.get("email")):
             return render_template("error.html", errtext="email invalid", errcode="400"), 400
-
+        elif not check_Gcode(rf.get("Gcode")):
+            return render_template("error.html", errtext="Gcode invalid", errcode="400"), 400
+        
 
         db.execute("INSERT INTO users(username, email, Gcode, pass) VALUES(?, ?, ?, ?)",
                     rf.get("name"), rf.get("email"), rf.get("Gcode"), hash(rf.get("pass")))
