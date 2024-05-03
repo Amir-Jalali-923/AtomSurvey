@@ -34,6 +34,3 @@ def check_Gcode(code):
     if ((b >= 2 and a == 11 - b) or (b < 2 and a == b)):
         return True
     return False
-
-
-print(check_Gcode("1364518473"))
