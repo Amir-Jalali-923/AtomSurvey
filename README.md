@@ -1,2 +1,0 @@
-# Fuckin hellll
-workkkkkkkkkk
