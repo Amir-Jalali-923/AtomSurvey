@@ -1,0 +1,55 @@
+/* ? font space */
+@font-face {
+    font-family: iran-yekan;
+    src: url(../resources/Fonts/iranyekanwebmediumfanum.ttf);
+}
+
+@font-face {
+    font-family: B-nazanin;
+    src: url(../resources/Fonts/B_NAZANIN/B-NAZANIN.TTF);
+}
+
+/* ! general codes */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: iran-yekan;
+    direction: rtl;
+    font-size: 20px 15px;
+}
+
+:root {
+    --themeColorCoral: #ff725e;
+    /* --themeColorCoral :#1b6fdd; */
+    --themeColorYellow: #f8c35c;
+    --themeColorBlack: #000;
+    --hoverColor: #fa4c35;
+    --themeColorWhite: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}

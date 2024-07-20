@@ -1,0 +1,124 @@
+@media screen and (min-width: 360px) {
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    main {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        flex-direction: column;
+        height: 100vh;
+        background-color: var(--themeColorCoral);
+        padding: 20px;
+    }
+
+    .exit {
+        background-color: white;
+        color: black;
+        padding: 20px 40px;
+        border: none;
+        border-radius: 100px;
+        position: relative;
+        bottom: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 30px;
+        padding: 40px 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        background-color: white;
+        height: auto;
+    }
+
+    .passwordChange {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .passwordInput {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    .passwordInput input {
+        padding: 10px 20px;
+        border: solid var(--themeColorCoral) 0.5px;
+        border-radius: 10px;
+        direction: ltr;
+        transition: all 0.25s;
+    }
+
+    .passwordInput input:focus {
+        outline: 1px solid var(--themeColorCoral);
+        background-color: rgb(236, 236, 236);
+    }
+
+    form button {
+        background-color: var(--themeColorCoral);
+        color: white;
+        border: none;
+        max-width: 150px;
+        height: 50px;
+        padding: 10px 30px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .passwordChange {
+        flex-direction: row;
+    }
+
+    .passwordInput {
+        font-size: 16px;
+    }
+
+    form button {
+        font-size: 17px;
+    }
+
+    .passwordInput input {
+        padding: 15px;
+    }
+
+    .passwordInput {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:1600px) {
+    .passwordInput {
+        font-size: 18px;
+    }
+
+    form button {
+        font-size: 17px;
+    }
+
+    label {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    label input {
+        width: 20px;
+        height: 20px;
+    }
+}

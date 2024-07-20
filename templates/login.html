@@ -1,15 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
+
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/Login.css" />
+  <link rel="stylesheet" href="../static/css/General.css" />
 </head>
+
 <body>
-    <form action="" method="post">
-        <input type="text" name="Gcode">
-        <input type="text" name="pass">
-        <input type="submit">
-    </form>
+  <!-- <div class="container"> -->
+  <form action="" method="post">
+    <div class="loginDiv">
+      <h1>ورود</h1>
+      <div class="txt">
+        <h5>
+          حساب کاربری ندارید؟
+          <span><a href="/signup" class="signUpLink">ثبت نام</a> </span>کنید
+        </h5>
+      </div>
+      <div class="inputDiv">
+        <!-- <label for="">نام کاربری:</label> -->
+        <input type="text" class="userNameInput" name="userName" placeholder="نام کاربری" />
+      </div>
+      <div class="inputDiv">
+        <!-- <label for="">رمز عبور:</label> -->
+        <input type="password" class="passInput" name="password" placeholder="رمز عبور" />
+        <p class="passMessageP"></p>
+      </div>
+      <a href="" class="forgetLink">رمز عبور خود را فراموش کرده اید؟</a>
+      <button class="submit" type="button">ورود</button>
+    </div>
+    <div class="imageDiv">
+      <img src="../static/resources/Images/Login.png" alt="" />
+    </div>
+    <!-- </div> -->
+  </form>
+  <!-- script -->
+  <script src="scripts/LoginScript.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,195 @@
+@media screen and (min-width:360px) {
+
+  body {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: var(--themeColorCoral);
+  }
+
+  .passMessageP {
+    font-size: 12px;
+    color: red;
+  }
+
+  .inputDiv {
+    width: 80%;
+  }
+
+  body::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.548);
+    position: absolute;
+    opacity: 0.2;
+  }
+
+  form {
+    width: 350px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    position: relative;
+    z-index: 100;
+  }
+
+  .loginDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: inherit;
+    padding: 0;
+  }
+
+  .loginDiv h1 {
+    margin: 10px;
+  }
+
+  .loginDiv input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    color: black;
+    border: none;
+    border: solid var(--themeColorCoral) 0.5px;
+    border-radius: 10px;
+  }
+
+  input:focus {
+    background-color: rgba(211, 211, 211, 0.384);
+    outline: none;
+  }
+
+  .loginDiv a {
+    color: var(--themeColorCoral);
+  }
+
+  .imageDiv {
+    display: none;
+  }
+
+  .forgetLink {
+    font-size: 14px;
+  }
+
+  .loginDiv button {
+    padding: 10px 40px;
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--themeColorCoral);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .imageDiv {
+    display: none;
+  }
+
+  .imageDiv img {
+    width: 90%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+}
+
+@media screen and (min-width:1024px) {
+
+  form {
+    width: 700px;
+  }
+
+  .imageDiv {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loginDiv {
+    width: 50%;
+  }
+
+  .imageDiv img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+}
+
+@media screen and (min-width:1440px) {
+  form {
+    font-size: 18px;
+    width: 1000px;
+    height: 700px;
+  }
+
+  input {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width:1600px) {
+
+  form {
+    font-size: 20px;
+    width: 1000px;
+    height: 700px;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 30px 20px;
+  }
+
+  form .forgetLink {
+    font-size: 20px;
+  }
+
+  .submit {
+    font-size: 25px;
+  }
+
+  .loginDiv button {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 50px;
+  }
+
+  input::placeholder {
+    font-size: 15px;
+  }
+
+  .passMessageP {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width:1920px) {
+  .passMessageP {
+    font-size: 20px;
+  }
+
+  input {
+    height: 60px;
+  }
+}

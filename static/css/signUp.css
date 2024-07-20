@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+span a {
+  color: #ff725e;
+}
+
+/* Hide the arrows in Chrome, Safari, Edge, and Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff725e;
+}
+
+form {
+  width: 700px;
+  height: 500px;
+  display: flex;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left img {
+  width: 350px;
+  height: 280px;
+  background-size: cover;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 280px;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  color: black;
+  border: none;
+  border: solid #ff725e 0.5px;
+  border-radius: 10px;
+}
+
+span {
+  color: #ff725e;
+}
+
+.inputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.radioDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nextBtn {
+  padding: 10px 40px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  background-color: #ff725e;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.input:focus {
+  background-color: rgb(228, 228, 228);
+}
+
+.confirmationErrorP {
+  color: red;
+  text-align: right;
+  padding-left: 110px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 360px) {
+  form {
+    width: 350px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    position: relative;
+    z-index: 100;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 350px;
+    height: 500px;
+    border-radius: 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  form {
+    width: 700px;
+  }
+
+  .left {
+    display: flex;
+  }
+
+  .right {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}
+
+@media screen and (min-width:1440px) {
+  form {
+    font-size: 18px;
+    width: 1000px;
+    height: 700px;
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  .left {
+    width: 50%;
+  }
+
+  .right {
+    width: 50%;
+  }
+
+  .left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  form {
+    width: 1000px;
+  }
+
+  .left img {
+    width: 500px;
+    height: 430px;
+  }
+
+  .left,
+  .right {
+    width: 500px;
+    height: 700px;
+  }
+
+  .input {
+    width: 400px;
+    height: 60px;
+  }
+
+  ::placeholder {
+    font-size: 16px;
+  }
+
+  .topP {
+    font-size: 20px;
+    margin: 10px 0px;
+  }
+
+  .radioDiv label {
+    font-size: 20px;
+  }
+
+  .nextBtn {
+    width: 400px;
+    height: 48px;
+    font-size: 18px;
+  }
+}

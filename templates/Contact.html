@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+    <title>contact us</title>
+</head>
+<link rel="stylesheet" href="../static/css/General.css">
+<link rel="stylesheet" href="../static/css/Header.css">
+<link rel="stylesheet" href="../static/css/Footer.css">
+<link rel="stylesheet" href="../static/css/contact.css">
+
+<body>
+    <div class="container">
+        <header>
+            <!-- header -->
+        </header>
+
+        <!-- main -->
+        <main>
+            <div class="card">
+                <h2>ارتباط با ما</h2>
+                <form id="contactForm" action="#" method="POST">
+                    <label for="name">نام و نام خانوادگی:</label><br>
+                    <input type="text" id="name" name="name" required><br>
+
+                    <label for="email">ایمیل:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+
+                    <label for="message">پیام:</label><br>
+                    <textarea id="message" name="message" style="height:150px" required></textarea><br>
+
+                    <p class="error"></p>
+                    <div class="link">
+                        <button type="button">ارسال</button>
+                    </div>
+                </form>
+                <div class="image">
+                    <img src="../static/resources/Images/contact.jpg" alt="" />
+                </div>
+            </div>
+        </main>
+        <!-- footer -->
+        <footer>
+
+        </footer>
+
+    </div>
+    </div>
+
+    <script src="../static/scripts/Contact.js" type="module"></script>
+
+</body>
+
+</html>

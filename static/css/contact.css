@@ -1,0 +1,163 @@
+body {
+    background-color: #f5f7fa;
+    color: #202124;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.downSide {
+    display: none;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+}
+
+.card form label {
+    margin-bottom: 5px;
+}
+
+.card form input,
+.card form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.card button[type=button] {
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+    align-self: flex-end;
+    color: white;
+    background-color: var(--themeColorCoral);
+    cursor: pointer;
+}
+
+.card form textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.card .link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card .link a {
+    background-color: var(--themeColorCoral);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.card .image {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card .image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 360px) {
+    .card img {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card h2 {
+        display: none;
+    }
+
+    .card form {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .card .image {
+        flex: 1;
+        margin-top: 0;
+    }
+
+    .card .image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        max-width: 900px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .card {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .card {
+        max-width: 1100px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .card {
+        max-width: 1200px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .card {
+        max-width: 1300px;
+    }
+}

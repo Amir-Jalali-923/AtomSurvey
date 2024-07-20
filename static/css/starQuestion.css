@@ -1,0 +1,126 @@
+body {
+    background-color: #f5f7fa;
+    color: #202124;
+    font-family: Arial, sans-serif;
+}
+
+.header,
+.footer {
+    background-color: var(--themeColorCoral);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    height: 100vh;
+    padding: 20px;
+}
+
+.questionSide h2 {
+    font-size: 20px;
+}
+
+.answerSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+form {
+    height: 50vh;
+}
+
+.rating-container {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    display: flex;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.stars span {
+    font-size: 70px;
+    color: #ddd;
+    margin: 0 2px;
+    transition: color 0.2s;
+}
+
+.stars span.selected {
+    color: #ff8a00;
+}
+
+.rating-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.errorMessage {
+    color: #d93025;
+}
+
+.progress-container {
+    direction: ltr;
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    border-radius: 15px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    transition: width 0.4s ease-in-out;
+}
+
+.buttonRow {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#next-button {
+    width: 200px;
+    align-self: center;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    background: var(--themeColorCoral);
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+#before-button {
+    width: 200px;
+    align-self: center;
+    padding: 10px 20px;
+    border: solid 1px var(--themeColorCoral);
+    color: var(--themeColorCoral);
+    background: white;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px 0px;
+    cursor: pointer;
+}

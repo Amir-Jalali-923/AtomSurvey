@@ -14,13 +14,14 @@ Session(app)
 def index():
     if "user_id" in session:
         return render_template("index.html", user_id=session["user_id"])
-    return render_template("index.html")
+    return render_template("index.html", name="Shit works :)")
+
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
     session.clear()
     if request.method == "GET":
-        return render_template("login.html")
+        return render_template("Login.html")
     else:
         rows = db.execute("SELECT * FROM users WHERE Gcode = ? and pass = ?", request.form.get("Gcode"), hash(request.form.get("pass")))
         if len(rows) != 1:
@@ -28,10 +29,11 @@ def login():
         session["user_id"] = rows[0]["id"]
         return redirect("/")
     
+    
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
     if request.method == "GET":
-        return render_template("signup.html")
+        return render_template("signUp.html")
     else:
         rf = request.form
 
@@ -46,6 +48,7 @@ def signup():
         
         if not check_Gcode(rf.get("Gcode")):
             return render_template("error.html", errtext="Gcode invalid", errcode="400"), 400
+        
 
         rows = db.execute("SELECT * FROM users WHERE Gcode = ?", rf.get("Gcode"))
         if len(rows) > 0:

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
+  <title>تنظیمات</title>
+  <link rel="stylesheet" href="../static/css/General.css" />
+  <link rel="stylesheet" href="../static/css/Setting.css" />
+</head>
+
+<body>
+  <!-- main  -->
+  <main>
+    <!-- todo will be filled by Jalal -->
+    <!-- todo <h1>hello {name}</h1> -->
+    <h1>
+      تنظیمات کاربر :
+    </h1>
+    <form action="" method="post">
+      <div class="passwordChange">
+
+        <div class="passwordInput">
+          رمز فعلی:
+          <input type="password" name="currentPassword" id="currentPassword">
+        </div>
+        <div class="passwordInput">
+          رمز جدید:
+          <input type="password" name="password" id="password">
+          تکرار رمز:
+          <input type="password" name="repassword" id="repassword">
+        </div>
+      </div>
+      <label for="ramz">
+        <input type="checkbox" name="ramz" id="showPassword">
+        نمایش رمز عبور
+      </label>
+      <p id="errorMessage"></p>
+      <button type="button" class="submitButton">ثبت</button>
+    </form>
+    <button class="exit">
+      خروج از سایت
+    </button>
+  </main>
+  <script type="module" src="../static/scripts/Setting.js"></script>
+</body>
+
+</html>

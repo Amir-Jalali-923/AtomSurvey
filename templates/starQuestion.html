@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Page</title>
+    <link rel="stylesheet" href="../static/css/General.css">
+    <link rel="stylesheet" href="../static/css/starQuestion.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>نظرسنجی</h1>
+    </header>
+    <main class="main">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <form id="survey-form">
+            <div class="questionSide">
+                <h2>سوال اینجا قرار میگیرد</h2>
+            </div>
+            <div class="answerSide">
+                <div class="rating-container">
+                    <div class="stars">
+                        <span data-value="1">&#9733;</span>
+                        <span data-value="2">&#9733;</span>
+                        <span data-value="3">&#9733;</span>
+                        <span data-value="4">&#9733;</span>
+                        <span data-value="5">&#9733;</span>
+                    </div>
+                    <div class="rating-value" id="rating-value">0.0</div>
+                </div>
+                <div class="errorMessage" id="error-message"></div>
+                <div class="buttonRow">
+                    <button type="button" id="next-button">بعدی</button>
+                <button class="button" id="before-button">قبلی</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer class="footer">
+        <p>باتشکر از بازخورد شما!</p>
+    </footer>
+    <script src="..//static/scripts/questions/starQuestion.js"></script>
+</body>
+
+</html>

@@ -1,15 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/index.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
+    <meta name="نام هنرستان:" content="مصطفی خمینی ">
+    <meta content="نظرسنجی هنرستان ">
+    <title>Atom survay</title>
+    <link rel="stylesheet" href="../static/css/General.css">
+    <link rel="stylesheet" href="../static/css/Header.css">
+    <link rel="stylesheet" href="../static/css/Footer.css">
+    <link rel="stylesheet" href="../static/css/index.css">
 </head>
 
 <body>
-    <h1>signed in as {{user_id}}</h1>
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            {% include 'header.html' %}
+        </header>
+        <!-- Main -->
+        <main>
+            {{name}}
+            <h2>ورود مستقیم</h2>
+            <div class="content">
+                <a href=" #">
+                    <div class="card">
+                        <div class="imageRow">
+                            <img src="../static/resources/Images/2.png" alt="">
+                        </div>
+                        <div class="textArea">
+                            <button>
+                                ورود اولیا
+                            </button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="imageRow">
+                            <img src="../static/resources/Images/1.png" alt="">
+                        </div>
+                        <div class="textArea">
+                            <button>
+                                ورود هنرجو
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
+        <!-- footer -->
+        <footer></footer>
+    </div> <!-- </container> -->
+    <!-- <script defer src="../static/scripts/index.js" type="module"></script> -->
 </body>
 
 </html>

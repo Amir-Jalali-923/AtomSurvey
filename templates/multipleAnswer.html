@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Page</title>
+    <link rel="stylesheet" href="../static/css/General.css"">
+    <link rel=" stylesheet" href="../static/css/multipleAnswer.css"">
+</head>
+<body>
+    <header class=" header">
+    <h1>نظرسنجی
+    </h1>
+    </header>
+    <main class="main">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <form method="post" action="">
+            <div class="questionSide">
+                <p>سوال اینجا قرار میگیرد.</p>
+            </div>
+            <div class="question" id="question-1">
+                <input type="radio" name="" id="">
+                <p>جواب 1 </p>
+            </div>
+            <div class="question" id="question-2">
+                <p>جواب 2 </p>
+                <input type="radio" name="" id="">
+            </div>
+            <div class="question" id="question-1">
+                <p>جواب 3 </p>
+                <input type="radio" name="" id="">
+            </div>
+            <div class="question" id="question-2">
+                <p>جواب 4</p>
+                <input type="radio" name="" id="">
+            </div>
+            <div class="errorMessage" id="error-message"></div>
+            <div class="buttonRow">
+                <button class="button" id="next-button">بعدی</button>
+                <button class="button" id="before-button">قبلی</button>
+            </div>
+        </form>
+    </main>
+    <footer class="footer">
+        <p>Thank you for your feedback!</p>
+    </footer>
+    <script src="../static/scripts/questions/multipleAnswer.js"></script>
+    </body>
+
+</html>
