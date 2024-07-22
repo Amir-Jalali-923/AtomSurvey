@@ -30,7 +30,7 @@ function ValidationInputs() {
   }
 
   // checking the Length of the password to be 8 characters
-  else if (passInput.value.length < 8) {
+  else if (passInput.value.length < 6) {
     Istrue = false;
     passMessageP.textContent = "رمز باید بیش از 8 کاراکتر باشد";
   }

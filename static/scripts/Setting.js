@@ -30,7 +30,7 @@ function checkValid(inp) {
     return inp.value !== undefined && inp.value !== ""; // Simplified the function
 }
 function checkLength(inp) {
-    if (inp.value.length < 8)
+    if (inp.value.length < 6)
         return false;
     else
         return true;
@@ -70,7 +70,7 @@ submitButton.addEventListener('click', (event) => {  // Added 'event' parameter
     }
     // checking the Length of inputs 
     if (!checkLength(input1) && !checkLength(input2) && !checkLength(input3)) {
-        errorMessage.textContent = "باید رمز ها بیشتر از 8 کاراکتر باشد";
+        errorMessage.textContent = "باید رمز ها بیشتر از 6 کاراکتر باشد";
         errorMessage.style.color = "red";
         condition = false;
     }

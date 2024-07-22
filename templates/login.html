@@ -12,7 +12,7 @@
 
 <body>
   <!-- <div class="container"> -->
-  <form action="" method="post">
+  <form action="/login" method="post">
     <div class="loginDiv">
       <h1>ورود</h1>
       <div class="txt">
@@ -23,11 +23,11 @@
       </div>
       <div class="inputDiv">
         <!-- <label for="">نام کاربری:</label> -->
-        <input type="text" class="userNameInput" name="userName" placeholder="نام کاربری" />
+        <input type="number" class="userNameInput" name="Gcode" placeholder="کد ملی" />
       </div>
       <div class="inputDiv">
         <!-- <label for="">رمز عبور:</label> -->
-        <input type="password" class="passInput" name="password" placeholder="رمز عبور" />
+        <input type="password" class="passInput" name="pass" placeholder="رمز عبور" />
         <p class="passMessageP"></p>
       </div>
       <a href="" class="forgetLink">رمز عبور خود را فراموش کرده اید؟</a>
@@ -39,7 +39,7 @@
     <!-- </div> -->
   </form>
   <!-- script -->
-  <script src="scripts/LoginScript.js"></script>
+  <script src="../static/scripts/LoginScript.js"></script>
 </body>
 
 </html>

@@ -17,30 +17,28 @@
     <h1>
       تنظیمات کاربر :
     </h1>
-    <form action="" method="post">
+    <form action="/Setting" method="post">
       <div class="passwordChange">
 
         <div class="passwordInput">
           رمز فعلی:
-          <input type="password" name="currentPassword" id="currentPassword">
+          <input type="password" name="currentPass" id="currentPassword">
         </div>
         <div class="passwordInput">
           رمز جدید:
-          <input type="password" name="password" id="password">
+          <input type="password" name="pass" id="password">
           تکرار رمز:
-          <input type="password" name="repassword" id="repassword">
+          <input type="password" name="pass-con" id="repassword">
         </div>
       </div>
-      <label for="ramz">
-        <input type="checkbox" name="ramz" id="showPassword">
+      <label for="">
+        <input type="checkbox" id="showPassword">
         نمایش رمز عبور
       </label>
       <p id="errorMessage"></p>
       <button type="button" class="submitButton">ثبت</button>
     </form>
-    <button class="exit">
-      خروج از سایت
-    </button>
+    <a href="/"><button class="exit">برگشت</button></a>
   </main>
   <script type="module" src="../static/scripts/Setting.js"></script>
 </body>

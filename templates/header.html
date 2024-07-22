@@ -61,28 +61,7 @@
                         <p>ارتباط با ما</p>
                     </li>
                 </a>
-                <!-- sign up -->
-                <a href="/signup" class="signup">
-                    <li>
-                        <img src="../static/resources/Images/icons/header/icons8-sign-up-32.png" alt="">
-                        <p>ثبت نام</p>
-                    </li>
-                </a>
-                <!-- login -->
-                <a href="/login" class="login">
-                    <li>
-                        <img src="../static/resources/Images/icons/header/icons8-login-50.png" alt="">
-                        <p>ورود</p>
-                    </li>
-                </a>
-                <!-- log out -->
-                <a href="/logout" class="logout">
-                    <li>
-                        <img src="../static/resources/Images/icons/header/icons8-log-out-50.png" alt="">
-                        <p>خروج</p>
-                    </li>
-                </a>
-
+                {{Moptions | safe}}
             </ul>
             <hr>
             <div class="userBar">
@@ -124,17 +103,7 @@
                     </li>
                 </a>
                 <!-- sign up -->
-                <a href="/signup" class="signup">
-                    <li>
-                        <p>ثبت نام</p>
-                    </li>
-                </a>
-                <!-- login -->
-                <a href="/login" class="login">
-                    <li>
-                        <p>ورود</p>
-                    </li>
-                </a>
+                {{options | safe}}
                 <a href="/Querypage" class="participate login">
                     <li>
                         <p>شرکت در نظرسنجی</p>
@@ -145,7 +114,7 @@
         <a href="/Setting">
             <div class="account">
                 <img src="../static/resources/Images/icons/account-50 (1).png" alt="profile image">
-                <p name="username">{{name}}</p>
+                <p name="username">{{name | safe}}</p>
             </div>
         </a>
     </div>
