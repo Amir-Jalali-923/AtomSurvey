@@ -121,6 +121,9 @@ def Contact():
 
 @app.route('/survey', methods=['GET', 'POST'])
 def survay():
+    if(session['participated']):
+        return render_template('error.html', errtext="you have taken this survay before", errcode=400), 400
+
     if request.method == 'GET':
         session['qn'] = 1
         session['answers'] = {}
@@ -128,6 +131,8 @@ def survay():
         session['answers'][session['qn']] = request.form.get('answer')
         print(session['answers'])
         session['qn'] += 1
+        if session['qn'] > 10:
+            return redirect('/save')
 
     question = get_question('data/questions.csv', session['qn'])
     if not question:
@@ -143,6 +148,15 @@ def survay():
     
     else:
         return render_template('error.html', errtext="WHAT ARE YOU  DOING HERE ?", errcode=500),500
+    
+
+@app.route('/save')
+def save():
+    if(write_stats("data/answers.json", session['answers']) != 0):
+        return render_template("error.html", errtext="OOPS, somthing went wrong, yor response wont be saved!", errcode=400), 400
+    session['participated'] = True
+    return("your response saved succefuly!\nThank you for your feedBack")
+
 # Run the application
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -1,6 +1,7 @@
 import hashlib
 import re
 import csv
+import json
 
 
 # Function to hash a given text using SHA-256
@@ -46,13 +47,32 @@ def check_Gcode(code):
     return False
 
 
-def get_question(file_path, line_number):
+def get_question(file_path:str, line_number:int):
     with open(file_path, newline='', encoding='utf-8') as csvfile:
         csvreader = csv.DictReader(csvfile)
         for current_line, row in enumerate(csvreader, start=1):
             if current_line == line_number:
                 return row
     return None  # If the line number is out of range
+
+def read_stats(file_path:str):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+    
+def write_stats(file_path, data:dict):
+    try:
+        stats = read_stats(file_path)
+
+        for stat in data.keys():
+            stats[str(stat)][data[stat]] += 1
+        
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(stats, f, ensure_ascii=False, indent=4)
+
+    except:
+        return -1
+    
+    return 0
 
 
 # HTML templates for login and logout options
