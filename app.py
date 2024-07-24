@@ -155,7 +155,7 @@ def save():
     if(write_stats("data/answers.json", session['answers']) != 0):
         return render_template("error.html", errtext="OOPS, somthing went wrong, yor response wont be saved!", errcode=400), 400
     session['participated'] = True
-    return("your response saved succefuly!\nThank you for your feedBack")
+    return render_template("save.html")
 
 # Run the application
 if __name__ == "__main__":
