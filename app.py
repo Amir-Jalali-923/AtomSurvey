@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
 from flask_session import Session
-from hashlib import sha256
 from helpers import *
 from cs50 import SQL
 
@@ -119,6 +118,31 @@ def AboutUs():
 def Contact():
     return render_template("Contact.html")
 
+
+@app.route('/survey', methods=['GET', 'POST'])
+def survay():
+    if request.method == 'GET':
+        session['qn'] = 1
+        session['answers'] = {}
+    else:
+        session['answers'][session['qn']] = request.form.get('answer')
+        print(session['answers'])
+        session['qn'] += 1
+
+    question = get_question('data/questions.csv', session['qn'])
+    if not question:
+        return render_template('error.html', errtext="no Such Question exists.", errcode=400), 400
+    if(question['type'] == '1'):
+        return render_template('multipleAnswer.html', title=question['title'], options=['عالی', 'خوب', 'متوسط', 'ضعیف'], qn=session['qn'])
+    
+    if(question['type'] == '2'):
+        return render_template('multipleAnswer.html', title=question['title'], options=['بله', 'خیر'], qn=session['qn'])
+    
+    if(question['type'] == '3'):
+        return render_template('starQuestion.html', title=question['title'], qn=session['qn'])
+    
+    else:
+        return render_template('error.html', errtext="WHAT ARE YOU  DOING HERE ?", errcode=500),500
 # Run the application
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

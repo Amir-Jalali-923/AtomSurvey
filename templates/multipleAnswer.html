@@ -16,31 +16,36 @@
     <main class="main">
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
+            <div id="progressValue">
+                <p id="currentQue">{{qn}}</p>
+                /
+                <p id="questionNUmber">10</p>
+            </div>
         </div>
-        <form method="post" action="">
+        <form method="post" action="/survey">
             <div class="questionSide">
-                <p>سوال اینجا قرار میگیرد.</p>
+                <p>{{title}}</p>
             </div>
+            {% for option in options %}
             <div class="question" id="question-1">
-                <input type="radio" name="" id="">
-                <p>جواب 1 </p>
+                <input type="radio" name="answer" id="" value="{{option}}">
+                <p>{{option}}</p>
             </div>
-            <div class="question" id="question-2">
-                <p>جواب 2 </p>
-                <input type="radio" name="" id="">
-            </div>
-            <div class="question" id="question-1">
-                <p>جواب 3 </p>
-                <input type="radio" name="" id="">
-            </div>
-            <div class="question" id="question-2">
-                <p>جواب 4</p>
-                <input type="radio" name="" id="">
-            </div>
+            {% endfor %}
+
             <div class="errorMessage" id="error-message"></div>
             <div class="buttonRow">
-                <button class="button" id="next-button">بعدی</button>
-                <button class="button" id="before-button">قبلی</button>
+                {% if qn < 10 %}
+                    <button class="button" id="next-button" type="button">بعدی</button>
+                {% endif %}
+
+                {% if qn > 1 %}
+                    <button class="button" id="before-button">قبلی</button>
+                {% endif %}
+
+                {% if qn == 10 %}
+                    <button class="button" id="next-button" type="button">ثبت</button>
+                {% endif %}
             </div>
         </form>
     </main>

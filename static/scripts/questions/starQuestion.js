@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ratingValue = document.getElementById('rating-value');
     const errorMessage = document.getElementById('error-message');
     const nextButton = document.getElementById('next-button');
+    const questionNum = Number(document.getElementById('questionNUmber').textContent);
+
 
     stars.forEach(star => {
         star.addEventListener('click', () => {
@@ -21,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 star.classList.remove('selected');
             }
         });
-        ratingValue.textContent = value + '.0';
+        ratingValue.textContent = value;
+        document.getElementById('rating-input').value = value;
     }
 
     nextButton.addEventListener('click', () => {
@@ -29,15 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.textContent = "Please select a star rating.";
         } else {
             errorMessage.textContent = "";
-            alert('Form submitted successfully!');
-            // document.querySelector('form').submit(); // Uncomment to submit the form
+            document.querySelector('form').submit(); // Uncomment to submit the form
         }
     });
-
-    // Example for the progress bar
-    let currentNumber = document.getElementById('current');
-    let progressBar = document.querySelector('.progress-bar');
-    progressBar.style.width = Number(currentNumber.textContent) * 5 + "%";
 
     // Adjust main height on load and resize
     window.addEventListener('load', () => {
@@ -46,4 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         document.querySelector('main').style.height = window.innerHeight + 'px';
     });
+
+    function ProgressChange() {
+        let current = document.getElementById('currentQue').textContent;
+        let progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = Number(current) * 100 / questionNum + "%";
+    }
+    ProgressChange()
 });

@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('progress-bar');
     const questions = document.querySelectorAll('.question');
-    const submitButton = document.getElementById('submit-button');
+    const submitButton = document.getElementById('next-button');
     const errorMessage = document.getElementById('error-message');
+    const questionNum = Number(document.getElementById('questionNUmber').textContent);
     let isAnswered = false;
 
     questions.forEach(question => {
@@ -20,8 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessage.textContent = "Please answer all the questions.";
         } else {
             errorMessage.textContent = "";
-            alert('Thank you for your feedback!');
-            // document.getElementById('survey-form').submit(); // Uncomment to submit the form
+            document.querySelector('form').submit(); // Uncomment to submit the form
         }
     });
+
+
+    function ProgressChange() {
+        let current = document.getElementById('currentQue').textContent;
+        let progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = Number(current) * 100 / questionNum + "%";
+    }
+    ProgressChange()
 });

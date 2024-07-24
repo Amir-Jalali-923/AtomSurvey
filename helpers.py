@@ -1,45 +1,7 @@
 import hashlib
 import re
+import csv
 
-# HTML templates for login and logout options
-loginOptions = """<a href="/signup" class="signup">
-                    <li>
-                        <p>ثبت نام</p>
-                    </li>
-                </a>
-                <!-- login -->
-                <a href="/login" class="login">
-                    <li>
-                        <p>ورود</p>
-                    </li>
-                </a>"""
-
-logoutOptions = """<a href="/logout" class="login">
-                    <li>
-                        <p>خروج</p>
-                    </li>
-                </a>"""
-
-# HTML templates for login and logout options on mobile
-loginOptionsMobile = """<a href="/signup" class="signup">
-                    <li>
-                        <img src="../static/resources/Images/icons/header/icons8-sign-up-32.png" alt="">
-                        <p>ثبت نام</p>
-                    </li>
-                </a>
-                <a href="/login" class="login">
-                    <li>
-                        <img src="../static/resources/Images/icons/header/icons8-login-50.png" alt="">
-                        <p>ورود</p>
-                    </li>
-                </a>"""
-
-logoutOptionsMobile = """<a href="/logout" class="logout">
-                    <li>
-                        <img src="../static/resources/Images/icons/header/icons8-log-out-50.png" alt="">
-                        <p>خروج</p>
-                    </li>
-                </a>"""
 
 # Function to hash a given text using SHA-256
 def hash(text):
@@ -82,3 +44,53 @@ def check_Gcode(code):
     if ((b >= 2 and a == 11 - b) or (b < 2 and a == b)):
         return True
     return False
+
+
+def get_question(file_path, line_number):
+    with open(file_path, newline='', encoding='utf-8') as csvfile:
+        csvreader = csv.DictReader(csvfile)
+        for current_line, row in enumerate(csvreader, start=1):
+            if current_line == line_number:
+                return row
+    return None  # If the line number is out of range
+
+
+# HTML templates for login and logout options
+loginOptions = """<a href="/signup" class="signup">
+                    <li>
+                        <p>ثبت نام</p>
+                    </li>
+                </a>
+                <!-- login -->
+                <a href="/login" class="login">
+                    <li>
+                        <p>ورود</p>
+                    </li>
+                </a>"""
+
+logoutOptions = """<a href="/logout" class="login">
+                    <li>
+                        <p>خروج</p>
+                    </li>
+                </a>"""
+
+# HTML templates for login and logout options on mobile
+loginOptionsMobile = """<a href="/signup" class="signup">
+                    <li>
+                        <img src="../static/resources/Images/icons/header/icons8-sign-up-32.png" alt="">
+                        <p>ثبت نام</p>
+                    </li>
+                </a>
+                <a href="/login" class="login">
+                    <li>
+                        <img src="../static/resources/Images/icons/header/icons8-login-50.png" alt="">
+                        <p>ورود</p>
+                    </li>
+                </a>"""
+
+logoutOptionsMobile = """<a href="/logout" class="logout">
+                    <li>
+                        <img src="../static/resources/Images/icons/header/icons8-log-out-50.png" alt="">
+                        <p>خروج</p>
+                    </li>
+                </a>"""

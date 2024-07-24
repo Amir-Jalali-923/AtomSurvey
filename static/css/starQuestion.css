@@ -69,24 +69,40 @@ form {
     color: #d93025;
 }
 
+/* Container for the progress bar */
 .progress-container {
-    direction: ltr;
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 20px;
-    background: #ddd;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    padding: 3px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    height: 30px;
 }
 
+/* Progress bar itself */
 .progress-bar {
+    width: 0%;
     height: 100%;
-    width: 0;
     background: linear-gradient(90deg, #ff8a00, #e52e71);
-    border-radius: 15px;
+    border-radius: 25px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
     transition: width 0.4s ease-in-out;
+}
+
+/* Progress value text */
+#progressValue {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+#progressValue p {
+    margin: 0 5px;
 }
 
 .buttonRow {
