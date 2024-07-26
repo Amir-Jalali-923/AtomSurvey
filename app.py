@@ -37,7 +37,7 @@ def login():
         rows = db.execute("SELECT * FROM users WHERE Gcode = ? and pass = ?", request.form.get("Gcode"), hash(request.form.get("pass")))
         if len(rows) != 1:
             # Invalid Gcode or password
-            return render_template("error.html", errtext="invalid Gcode or password", errcode="403"), 403
+            return render_template("error.html", errtext="کد ملی یا رمز ورود اشتباه است", errcode="403"), 403
         # Log in the user
         session["user_id"] = rows[0]["id"]
         session["username"] = rows[0]["username"]
@@ -55,21 +55,21 @@ def signup():
 
         # Validate form data
         if not rf.get("name") or not rf.get("email") or not rf.get("Gcode") or not rf.get("pass") or not rf.get("pass-con"):
-            return render_template("error.html", errtext="incomplete data", errcode="400"), 400
+            return render_template("error.html", errtext="داده ناقص است", errcode="400"), 400
 
         if rf.get("pass") != rf.get("pass-con"):
-            return render_template("error.html", errtext="password confirmation doesn't match with password", errcode="400"), 400
+            return render_template("error.html", errtext="رمز عبور با تاییدش مطابقت ندارد", errcode="400"), 400
 
         if not check_email(rf.get("email")):
-            return render_template("error.html", errtext="email invalid", errcode="400"), 400
+            return render_template("error.html", errtext="ایمیل معتبر نیست", errcode="400"), 400
 
         if not check_Gcode(rf.get("Gcode")):
-            return render_template("error.html", errtext="Gcode invalid", errcode="400"), 400
+            return render_template("error.html", errtext="کد ملی معتبر نیست", errcode="400"), 400
 
         # Check if Gcode already exists
         rows = db.execute("SELECT * FROM users WHERE Gcode = ?", rf.get("Gcode"))
         if len(rows) > 0:
-            return render_template("error.html", errtext="a user with this Gcode already exists", errcode="400"), 400
+            return render_template("error.html", errtext="کاربر دیگری با این کد ملی وجود دارد", errcode="400"), 400
 
         # Insert new user into the database
         db.execute("INSERT INTO users(username, email, Gcode, pass) VALUES(?, ?, ?, ?)", rf.get("name"), rf.get("email"), rf.get("Gcode"), hash(rf.get("pass")))
@@ -98,15 +98,15 @@ def setting():
 
         # Validate form data
         if not rf.get("pass") or not rf.get("pass-con") or not rf.get("currentPass"):
-            return render_template("error.html", errtext="incomplete data", errcode="400"), 400
+            return render_template("error.html", errtext="داده ناقص است", errcode="400"), 400
 
         if rf.get("pass") != rf.get("pass-con"):
-            return render_template("error.html", errtext="password confirmation doesn't match with password", errcode="400"), 400
+            return render_template("error.html", errtext="رمز عبور با تاییدش مطابقت ندارد", errcode="400"), 400
 
         # Check current password
         rows = db.execute("SELECT * FROM users WHERE id = ? AND pass = ?", session["user_id"], hash(rf.get("currentPass")))
         if len(rows) != 1:
-            return render_template("error.html", errtext="incorrect password", errcode="400"), 400
+            return render_template("error.html", errtext="رمز عبور نادرست است", errcode="400"), 400
 
         # Update the password
         db.execute("UPDATE users SET pass = ? WHERE id = ?", hash(rf.get("pass")), session["user_id"])
@@ -126,7 +126,7 @@ def Contact():
 @app.route('/survey', methods=['GET', 'POST'])
 def survay():
     if('participated' in session):
-        return render_template('error.html', errtext="you have taken this survay before", errcode=400), 400
+        return render_template('error.html', errtext="شما قبلا در نظرسنجی شرکت کرده اید", errcode=400), 400
 
     if request.method == 'GET':
         session['qn'] = 1
@@ -140,7 +140,7 @@ def survay():
 
     question = get_question('data/questions.csv', session['qn'])
     if not question:
-        return render_template('error.html', errtext="no Such Question exists.", errcode=400), 400
+        return render_template('error.html', errtext="سوالی در این خط وجود ندارد", errcode=400), 400
     if(question['type'] == '1'):
         return render_template('multipleAnswer.html', title=question['title'], options=['عالی', 'خوب', 'متوسط', 'ضعیف'], qn=session['qn'])
     
@@ -151,13 +151,13 @@ def survay():
         return render_template('starQuestion.html', title=question['title'], qn=session['qn'])
     
     else:
-        return render_template('error.html', errtext="WHAT ARE YOU  DOING HERE ?", errcode=500),500
+        return render_template('error.html', errtext="چطوریییییییی؟", errcode=500),500
     
 
 @app.route('/save')
 def save():
     if(write_stats("data/answers.json", session['answers']) != 0):
-        return render_template("error.html", errtext="OOPS, somthing went wrong, yor response wont be saved!", errcode=400), 400
+        return render_template("error.html", errtext="خطایی رخ داد, پاسخ شما ثبت نشد", errcode=400), 400
     session['participated'] = True
     return render_template("save.html")
 
