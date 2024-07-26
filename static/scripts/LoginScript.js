@@ -32,7 +32,7 @@ function ValidationInputs() {
   // checking the Length of the password to be 8 characters
   else if (passInput.value.length < 6) {
     Istrue = false;
-    passMessageP.textContent = "رمز باید بیش از 8 کاراکتر باشد";
+    passMessageP.textContent = "رمز باید بیش از 6 کاراکتر باشد";
   }
 
   // checking if the input that we get is English or not 

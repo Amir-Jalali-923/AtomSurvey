@@ -1,47 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه با نمودار و سوالات</title>
+    <link rel="stylesheet" href="../static/css/General.css">
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            direction: ltr;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chart-container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px 0;
+        }
+
+        .button-container {
+            width: 50%;
+            max-width: 500px;
+        }
+
+        #questionSelect {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #questionDisplay {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        form button {
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            border: none;
+            background-color: var(--themeColorCoral);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button{
+            border-radius: 100%;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background-color: #e9e9e9;
+        }
+        img{
+            margin-top: 3px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <!-- this will be filled by JS -->
-        <header></header>
-        <main>
-            <aside>
-                <h2>صفحه مدیر</h2>
-                <div class="profile">
-                    <div class="profilePic"></div>
-                    <p class="username"></p>
-                </div>
-                <div class="asideContent">
-                    <p class="daste">دسته بندی</p>
-                    <div class="asideItem" value="dashboard">
-                        داشبورد
-                    </div>
-                </div>
-            </aside>
-            <div class="mainContainer">
-                <div class="containerHeader">
-                    <div class="asideActivator">
-                        <img src="" alt="">
-                        <p>داشبورد</p>
-                    </div>
-                    <div class="headerStats">
-                        <div class="headerStat"></div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <!-- this will be filled by JS -->
-        <footer></footer>
-    </div>
-    <script type="module" src="../static/scripts/adminPage.js"></script>
-</body>
 
+        <div class="button-container">
+            <!-- will be filled by jalal -->
+            {% if qn < 10 %}
+            <button><a href="/showStats?qn={{qn + 1}}"><img src="../static/resources/Images/icons/arrow-right-short.svg" alt="Bootstrap" width="32" height="32"></a></button>
+            {% endif %}
+
+            {% if qn > 1 %}
+            <button><a href="/showStats?qn={{qn - 1}}"><img src="../static/resources/Images/icons/arrow-left-short.svg" alt="Bootstrap" width="32" height="32"></a></button>
+            {% endif %}
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+        {% for label in labels %}
+        <input type="text" class="labels" hidden value="{{label}}">
+        {% endfor %}
+        
+        {% for d in data %}
+        <input type="text" class="data" hidden value="{{d}}">
+        {% endfor %}
+        
+        <input type="text" class="data max" hidden value="10"> 
+        <input type="text" class="title" hidden value="{{title}}">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Chart.js initialization
+            const labels = document.querySelectorAll('.labels');
+            const data = document.querySelectorAll('.data');
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            Chart.defaults.font.size = 16;
+            Chart.defaults.font.family = "iran-yekan";
+
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Array.from(labels).map(label => label.value),
+                    datasets: [{
+                        data: Array.from(data).map(bar => Number(bar.value)),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: document.querySelector('.title').value
+                        },
+
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+            console.log(Array.from(labels).map(label => label.value),)
+        });
+    </script>
+</body>
 
 </html>

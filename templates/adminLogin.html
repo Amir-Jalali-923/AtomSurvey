@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
+
+    <title>Admin</title>
+    <link rel="stylesheet" href="../static/css/Login.css" />
+    <link rel="stylesheet" href="../static/css/General.css" />
+</head>
+
+<body>
+    <!-- <div class="container"> -->
+    <form action="/admin" method="post">
+        <div class="loginDiv">
+            <h1>ورود</h1>
+
+            <div class="inputDiv">
+                <!-- <label for="">نام کاربری:</label> -->
+                <input type="text" class="userNameInput" name="user" placeholder="نام کاربری" />
+            </div>
+            <div class="inputDiv">
+                <!-- <label for="">رمز عبور:</label> -->
+                <input type="password" class="passInput" name="pass" placeholder="رمز عبور" />
+                <p class="passMessageP"></p>
+            </div>
+            <button class="submit" type="button">ورود</button>
+        </div>
+        <div class="imageDiv">
+            <img src="../static/resources/Images/Login.png" alt="" />
+        </div>
+        <!-- </div> -->
+    </form>
+    <!-- script -->
+    <script src="../static/scripts/LoginScript.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, session
 from flask_session import Session
 from helpers import *
+from admin_routes import init_admin_routes
 from cs50 import SQL
 
 # Initialize Flask application
@@ -12,6 +13,8 @@ db = SQL('sqlite:///AtomSurvey.db')
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+init_admin_routes(app)
 
 # Route for the home page
 @app.route('/')
@@ -76,7 +79,8 @@ def signup():
 @app.route('/logout')
 def logout():
     # Clear the session
-    session.clear()
+    session["user_id"].clear()
+    session["username"].clear()
     return redirect('/')
 
 # Route for the settings page
@@ -121,7 +125,7 @@ def Contact():
 
 @app.route('/survey', methods=['GET', 'POST'])
 def survay():
-    if(session['participated']):
+    if('participated' in session):
         return render_template('error.html', errtext="you have taken this survay before", errcode=400), 400
 
     if request.method == 'GET':
@@ -156,6 +160,7 @@ def save():
         return render_template("error.html", errtext="OOPS, somthing went wrong, yor response wont be saved!", errcode=400), 400
     session['participated'] = True
     return render_template("save.html")
+
 
 # Run the application
 if __name__ == "__main__":

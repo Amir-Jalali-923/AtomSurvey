@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/css/General.css">
 </head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'iran-yekan';
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.error_txt {
+    font-size: 50px;
+}
+p{
+    font-size: 25px;
+}
+a{
+    text-decoration: none;
+    color: var(--themeColorCoral);
+}
+
+</style>
+
 <body>
-    <h1>{{errcode}}</h1>
-    {{errtext}}
+    <div class="container">
+        <h1 class="error_txt">{{errcode}}</h1>
+        <p>{{errtext}}</p>
+        <a href="/">صفحه اصلی</a>
+    </div>
 </body>
+
 </html>
